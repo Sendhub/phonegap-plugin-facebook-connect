@@ -34,5 +34,10 @@ PG.FB = {
     PhoneGap.exec(function(e) {
       if (cb) cb(e);
     }, (fail?fail:null), 'com.phonegap.facebook.Connect', 'getLoginStatus', []);
+  },
+  ui: function(params, cb) {
+    PhoneGap.exec(function(e) {
+		if (cb) cb(e);
+	}, null, 'com.phonegap.facebook.Connect', 'ui', [params]);
   }
 };

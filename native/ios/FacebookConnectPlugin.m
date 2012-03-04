@@ -10,7 +10,7 @@
 #import "FacebookConnectPlugin.h"
 #import "JSON.h"
 
-#define APP_SECRET  @"REPLACE_ME"
+#define APP_SECRET  @"fa13ee06af53e7f58281ccada8af0efe"
 
 @implementation FacebookConnectPlugin
 
@@ -221,6 +221,43 @@
 //{
 //	
 //}
+
+- (void) ui:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
+{
+
+    if (!self.facebook) {
+        
+        return;
+        
+    }
+    
+    
+    
+    NSString* callbackId = [arguments objectAtIndex:0]; // first item is the callbackId
+    
+    
+    
+    
+    NSString *action = [options objectForKey:@"method"];
+    
+    //[options removeObjectForKey:@"method"];
+    
+    NSLog(@"FB UI action: %@ ", action);
+    
+    
+
+
+    
+    
+    [facebook dialog:action
+     
+           andParams:options
+     
+         andDelegate:self];
+    
+    self.loginCallbackId = callbackId;
+    
+}
 
 
 
